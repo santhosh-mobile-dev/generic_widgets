@@ -30,7 +30,7 @@ class CustomTextField extends StatelessWidget {
             ? IconButton(
                 icon: Icon(
                   iconData,
-                  color: Colors.blue,
+                  color: Colors.deepPurple,
                 ),
                 onPressed: onPressed,
               )

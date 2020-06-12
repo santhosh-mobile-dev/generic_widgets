@@ -26,9 +26,15 @@ class _LoginState extends State<Login> {
     );
   }
 
-  Widget sizedBoxH48() {
+  Widget sizedBoxH94() {
     return SizedBox(
-      height: 48.0,
+      height: 94.0,
+    );
+  }
+
+  Widget sizedBoxH160() {
+    return SizedBox(
+      height: 160.0,
     );
   }
 
@@ -50,15 +56,17 @@ class _LoginState extends State<Login> {
 
   Widget loginUI(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16.0),
+      margin: EdgeInsets.symmetric(horizontal: 50.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Heading(
             text: "Login",
+            fontSize: 32.0,
+            fontWeight: FontWeight.w400,
           ),
-          sizedBoxH48(),
+          sizedBoxH94(),
           CustomTextField(
             textFieldController: emailController,
             labelText: "Email Address",
@@ -87,7 +95,7 @@ class _LoginState extends State<Login> {
             color: Colors.black,
             fontWeight: FontWeight.w400,
           ),
-          sizedBoxH48(),
+          sizedBoxH160(),
           Center(
               child: Heading(
             text: "Don't have an account?",
@@ -98,7 +106,7 @@ class _LoginState extends State<Login> {
           CustomFlatButton(
             text: "Create Account",
             onClick: () {},
-            color: Colors.blue,
+            color: Colors.deepPurple,
             fontWeight: FontWeight.w600,
           ),
         ],
