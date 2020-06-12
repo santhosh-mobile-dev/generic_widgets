@@ -8,6 +8,7 @@ class CustomTextField extends StatelessWidget {
   final IconData iconData;
   final bool isShowIcon;
   final VoidCallback onPressed;
+
   CustomTextField(
       {this.textFieldController,
       this.labelText,
@@ -29,7 +30,7 @@ class CustomTextField extends StatelessWidget {
             ? IconButton(
                 icon: Icon(
                   iconData,
-                  color: Colors.blue,
+                  color: Colors.deepPurple,
                 ),
                 onPressed: onPressed,
               )

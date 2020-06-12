@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:genericwidgetapp/ui/screen/login.dart';
+
 class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Generic Widgets',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Login(),

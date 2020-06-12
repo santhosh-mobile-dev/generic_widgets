@@ -4,6 +4,7 @@ class Heading extends StatelessWidget {
   final String text;
   final double fontSize;
   final FontWeight fontWeight;
+
   Heading({this.text, this.fontSize, this.fontWeight});
 
   @override
