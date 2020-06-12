@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:genericwidgetapp/ui/widgets/custom_flat_button.dart';
 import 'package:genericwidgetapp/ui/widgets/custom_raised_button.dart';
 import 'package:genericwidgetapp/ui/widgets/custom_textfield.dart';
 import 'package:genericwidgetapp/ui/widgets/heading.dart';
@@ -19,12 +20,17 @@ class _LoginState extends State<Login> {
     return loginUI(context);
   }
 
-  Widget sizedBoxH16()
-  {
+  Widget sizedBoxH16() {
     return SizedBox(
       height: 16.0,
     );
-}
+  }
+
+  Widget sizedBoxH48() {
+    return SizedBox(
+      height: 48.0,
+    );
+  }
 
   void passwordVisibility() {
     if (showPassword) {
@@ -52,9 +58,7 @@ class _LoginState extends State<Login> {
           Heading(
             text: "Login",
           ),
-          SizedBox(
-            height: 48.0,
-          ),
+          sizedBoxH48(),
           CustomTextField(
             textFieldController: emailController,
             labelText: "Email Address",
@@ -67,12 +71,36 @@ class _LoginState extends State<Login> {
             labelText: "Password",
             obscureText: obscuredText,
             isShowIcon: true,
-            iconData: showPassword? Icons.visibility_off : Icons.visibility,
+            iconData: showPassword ? Icons.visibility_off : Icons.visibility,
             showPassword: showPassword,
             onPressed: passwordVisibility,
           ),
           sizedBoxH16(),
-          CustomRaisedButton(text: "Login",onClick: login,)
+          CustomRaisedButton(
+            text: "Login",
+            onClick: login,
+          ),
+          sizedBoxH16(),
+          CustomFlatButton(
+            text: "Forgot Password?",
+            onClick: () {},
+            color: Colors.black,
+            fontWeight: FontWeight.w400,
+          ),
+          sizedBoxH48(),
+          Center(
+              child: Heading(
+            text: "Don't have an account?",
+            fontSize: 18.0,
+            fontWeight: FontWeight.normal,
+          )),
+          sizedBoxH16(),
+          CustomFlatButton(
+            text: "Create Account",
+            onClick: () {},
+            color: Colors.blue,
+            fontWeight: FontWeight.w600,
+          ),
         ],
       ),
     );
