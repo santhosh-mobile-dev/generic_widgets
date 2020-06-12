@@ -19,12 +19,11 @@ class _LoginState extends State<Login> {
     return loginUI(context);
   }
 
-  Widget sizedBoxH16()
-  {
+  Widget sizedBoxH16() {
     return SizedBox(
       height: 16.0,
     );
-}
+  }
 
   void passwordVisibility() {
     if (showPassword) {
@@ -67,12 +66,15 @@ class _LoginState extends State<Login> {
             labelText: "Password",
             obscureText: obscuredText,
             isShowIcon: true,
-            iconData: showPassword? Icons.visibility_off : Icons.visibility,
+            iconData: showPassword ? Icons.visibility_off : Icons.visibility,
             showPassword: showPassword,
             onPressed: passwordVisibility,
           ),
           sizedBoxH16(),
-          CustomRaisedButton(text: "Login",onClick: login,)
+          CustomRaisedButton(
+            text: "Login",
+            onClick: login,
+          )
         ],
       ),
     );

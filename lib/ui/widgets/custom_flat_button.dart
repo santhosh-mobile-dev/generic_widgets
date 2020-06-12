@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class CustomRaisedButton extends StatelessWidget {
+class CustomFlatButton extends StatelessWidget {
   final String text;
   final VoidCallback onClick;
 
-  CustomRaisedButton({this.text, this.onClick});
+  CustomFlatButton({this.text, this.onClick});
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: RaisedButton(
+      child: FlatButton(
         child: Text(text),
         onPressed: onClick,
         color: Colors.blue,
