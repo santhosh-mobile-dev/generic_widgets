@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:genericwidgetapp/app.dart';
 import 'package:genericwidgetapp/ui/screen/dashboard_screen.dart';
 import 'package:genericwidgetapp/ui/screen/notifications_screen.dart';
 import 'package:genericwidgetapp/ui/screen/profile_screen.dart';
 import 'package:genericwidgetapp/ui/screen/wallet_screen.dart';
+import 'package:genericwidgetapp/ui/widgets/custom_bottom_bar_item.dart';
 
 class HomePage extends StatefulWidget {
+  final BottomBarItem bottomBarItem;
+  HomePage({this.bottomBarItem});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -25,40 +30,38 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  Widget bottomNavigationBar() {
-    return BottomNavigationBar(
-      currentIndex: _currentIndex,
-      onTap: _changesIndex,
-      type: BottomNavigationBarType.fixed,
-      items: [
-        BottomNavigationBarItem(
-          icon: new Icon(Icons.home),
-          title: new Text('Dashboard'),
-        ),
-        BottomNavigationBarItem(
-          icon: new Icon(Icons.account_balance_wallet),
-          title: new Text('Wallet'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.notification_important),
-          title: Text('Notifications'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          title: Text('Profile'),
-        ),
-      ],
+  Widget appBar() {
+    return AppBar(
+      title: Text('Home'),
     );
+  }
+
+  Widget bottomNavigationBar(){
+    return BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: _changesIndex,
+        type: BottomNavigationBarType.fixed,
+        items: allItems.map((BottomBarItem bottomBarItem) {
+          return BottomNavigationBarItem(
+            icon: Icon(bottomBarItem.icon),
+            title: Text(bottomBarItem.title),
+          );
+        }).toList());
+  }
+
+  Widget body(BuildContext context) {
+    return screenView(context);
+  }
+
+  Widget screenView(BuildContext context) {
+    return Center(child: _children[_currentIndex]);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Home"),
-      ),
-      bottomNavigationBar: bottomNavigationBar(),
-      body: Center(child: _children[_currentIndex]),
-    );
+        appBar: appBar(),
+        bottomNavigationBar: bottomNavigationBar(),
+        body: body(context));
   }
 }
