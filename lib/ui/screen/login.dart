@@ -3,6 +3,7 @@ import 'package:genericwidgetapp/ui/widgets/custom_flat_button.dart';
 import 'package:genericwidgetapp/ui/widgets/custom_raised_button.dart';
 import 'package:genericwidgetapp/ui/widgets/custom_textfield.dart';
 import 'package:genericwidgetapp/ui/widgets/heading.dart';
+import 'package:genericwidgetapp/ui/screen/create_account.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -52,6 +53,11 @@ class _LoginState extends State<Login> {
 
   void login() {
     //TODO :: Complete this accordingly
+  }
+
+  void createAccount() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => CreateAccount()));
   }
 
   Widget loginUI(BuildContext context) {
@@ -105,7 +111,7 @@ class _LoginState extends State<Login> {
           sizedBoxH16(),
           CustomFlatButton(
             text: "Create Account",
-            onClick: () {},
+            onClick: createAccount,
             color: Colors.deepPurple,
             fontWeight: FontWeight.w600,
           ),
