@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:genericwidgetapp/ui/screen/home_page.dart';
 import 'package:genericwidgetapp/ui/widgets/custom_flat_button.dart';
 import 'package:genericwidgetapp/ui/widgets/custom_raised_button.dart';
 import 'package:genericwidgetapp/ui/widgets/custom_textfield.dart';
@@ -54,6 +55,8 @@ class _LoginState extends State<Login> {
 
   void login() {
     //TODO :: Complete this accordingly
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => HomePage()));
   }
 
   void createAccount() {
