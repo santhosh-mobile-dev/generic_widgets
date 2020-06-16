@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:genericwidgetapp/ui/screen/custom_bottom_bar.dart';
 import 'package:genericwidgetapp/ui/screen/profile_screen.dart';
 import 'package:genericwidgetapp/ui/screen/wallet_screen.dart';
+import 'package:genericwidgetapp/ui/widgets/bottom_bar_item.dart';
 
 import 'dashboard_screen.dart';
 import 'notifications_screen.dart';
@@ -11,8 +11,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
   final List _children = [
@@ -21,6 +20,25 @@ class _HomePageState extends State<HomePage>
     NotificationsScreen(),
     ProfileScreen()
   ];
+
+  _changesIndex(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  Widget bottomNavigationBar() {
+    return BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: _changesIndex,
+        type: BottomNavigationBarType.fixed,
+        items: allItems.map((BottomBarItem bottomBarItem) {
+          return BottomNavigationBarItem(
+            icon: Icon(bottomBarItem.icon),
+            title: Text(bottomBarItem.title),
+          );
+        }).toList());
+  }
 
   Widget appBar() {
     return AppBar(
@@ -38,7 +56,7 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      bottomNavigationBar: CustomBottomNavigationBar(),
+      bottomNavigationBar: bottomNavigationBar(),
       body: screenView(context),
     );
   }
