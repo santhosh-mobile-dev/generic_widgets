@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:genericwidgetapp/ui/screen/custom_bottom_bar.dart';
-import 'package:genericwidgetapp/ui/screen/home_drawer.dart';
+import 'package:genericwidgetapp/ui/screen/side_menu.dart';
 import 'dashboard_screen.dart';
 import 'notifications_screen.dart';
 import 'profile_screen.dart';
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      drawer: HomeDrawer(),
+      drawer: SideMenu(),
       bottomNavigationBar: CustomBottomNavigationBar(),
       body: screenView(context),
     );

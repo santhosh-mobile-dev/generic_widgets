@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:genericwidgetapp/ui/widgets/custom_list_tile.dart';
 
-class HomeDrawer extends StatelessWidget {
+class SideMenu extends StatelessWidget {
 
   Widget container(){
     return Container(
@@ -29,18 +29,22 @@ class HomeDrawer extends StatelessWidget {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget drawer(){
     return Drawer(
       child: Column(
         children: <Widget>[
           container(),
-          CustomListTile(Icons.person, "About User"),
-          CustomListTile(Icons.group, "Community"),
-          CustomListTile(Icons.settings, "Settings"),
-          CustomListTile(Icons.arrow_back, "Logout"),
+          CustomListTile(iconData: Icons.person,text: "About User",),
+          CustomListTile(iconData: Icons.group,text: "Community",),
+          CustomListTile(iconData: Icons.settings,text: "Settings",),
+          CustomListTile(iconData: Icons.arrow_back,text: "Logout",),
         ],
       ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return drawer();
   }
 }

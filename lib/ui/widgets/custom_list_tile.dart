@@ -4,7 +4,7 @@ class CustomListTile extends StatelessWidget {
   final IconData iconData;
   final String text;
 
-  CustomListTile(this.iconData,this.text);
+  CustomListTile({this.iconData,this.text});
   @override
   Widget build(BuildContext context) {
     return ListTile(
