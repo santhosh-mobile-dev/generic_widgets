@@ -8,21 +8,28 @@ class NotificationsScreen extends StatefulWidget {
 }
 
 class _NotificationsScreenState extends State<NotificationsScreen> {
-
   NotificationsDataSource dataSource = NotificationsDataSource();
-
 
   @override
   void initState() {
-     dataSource.fetchNotifications();
+    dataSource.addListener(dataSourceDidChange);
+    dataSource.fetchNotifications();
     super.initState();
   }
+
+  void dataSourceDidChange() {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
+    print(dataSource.notifications.length);
     return Scaffold(
-      body: dataSource.notifications.length == 0 ? Center(child: CircularProgressIndicator()) : Center(
-        child: Text(dataSource.notifications[1].description),
-      ),
+      body: dataSource.notifications.length == 0
+          ? Center(child: CircularProgressIndicator())
+          : Center(
+              child: Text(dataSource.notifications[0].description.toString(),),
+            ),
     );
   }
 }
