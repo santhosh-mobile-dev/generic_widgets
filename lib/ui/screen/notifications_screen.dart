@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:genericwidgetapp/datasource/notifications.dart';
 import 'package:genericwidgetapp/models/notifications.dart';
+import 'package:genericwidgetapp/utils.dart';
 
 class NotificationsScreen extends StatefulWidget {
   @override
@@ -25,7 +26,14 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
     final Notificationn notification = dataSource.objectAtIndexPath(indexPath);
 
     ListTile notificationTile = ListTile(
-      title: Text(notification.filter),
+      leading: CircleAvatar(
+        radius: 20.0,
+        backgroundImage: new NetworkImage(Utils.getImagePath(
+            notification.user.guid,
+            notification.user.iconTime)),
+      ),
+      title: Text(notification.user.name),
+      subtitle: Text(notification.filter),
     );
 
     return notificationTile;
