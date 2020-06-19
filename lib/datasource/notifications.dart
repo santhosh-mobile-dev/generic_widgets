@@ -10,7 +10,10 @@ class NotificationsDataSource extends ChangeNotifier {
   List<Notificationn> notifications = [];
 
   void fetchNotifications() async {
-    final response = await http.get(Api.base_Url,headers: {HttpHeaders.authorizationHeader: Api.token},);
+    final response = await http.get(
+      Api.base_Url,
+      headers: {HttpHeaders.authorizationHeader: Api.token},
+    );
     Map<String, dynamic> responseJson = json.decode(response.body);
 
     for (Map<String, dynamic> json in responseJson['notifications']) {
@@ -18,7 +21,13 @@ class NotificationsDataSource extends ChangeNotifier {
       notifications.add(notification);
       notifyListeners();
     }
+  }
 
+  Notificationn objectAtIndexPath(int indexPath) {
+    if (indexPath < notifications.length) {
+      return notifications.elementAt(indexPath);
+    }
+    return null;
   }
 
   @override

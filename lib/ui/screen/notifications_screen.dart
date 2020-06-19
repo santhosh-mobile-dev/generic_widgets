@@ -21,15 +21,28 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
     setState(() {});
   }
 
+  Widget buildItem(BuildContext context, int indexPath) {
+    final Notificationn notification = dataSource.objectAtIndexPath(indexPath);
+
+    ListTile notificationTile = ListTile(
+      title: Text(notification.filter),
+    );
+
+    return notificationTile;
+  }
+
   @override
   Widget build(BuildContext context) {
     print(dataSource.notifications.length);
     return Scaffold(
       body: dataSource.notifications.length == 0
           ? Center(child: CircularProgressIndicator())
-          : Center(
-              child: Text(dataSource.notifications[0].description.toString(),),
-            ),
+          :  ListView.separated(
+        padding: EdgeInsets.symmetric(vertical: 8.0),
+        itemCount: dataSource.notifications.length,
+        itemBuilder: buildItem,
+        separatorBuilder: (_, __) => Divider(),
+      ),
     );
   }
 }
