@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:genericwidgetapp/datasource/notifications.dart';
 import 'package:genericwidgetapp/models/notifications.dart';
@@ -23,33 +24,79 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
     setState(() {});
   }
 
+  String oldData = "";
+
+  String whenPostAdded(int timeStamp) {
+    String whichOne = "";
+
+    var date = new DateTime.fromMillisecondsSinceEpoch(timeStamp * 1000);
+    DateTime now = DateTime.now();
+
+    print("");
+    if (date == now) {
+      whichOne = "New";
+    } else {
+      whichOne = "Old";
+    } // present notification date and previous notification
+
+    if (whichOne == oldData) {
+      oldData = whichOne;
+      return "";
+    } else {
+      oldData = whichOne;
+      return whichOne;
+    }
+  }
+
   Widget buildItem(BuildContext context, int indexPath) {
     final Notificationn notification = dataSource.objectAtIndexPath(indexPath);
-    String timeDifference =
-        TimeDifference.postAddedTimeDifference(notification.timeCreated);
+    String timeDifference = TimeDifference.postAddedTimeDifference(notification.timeCreated);
+    String headerText = whenPostAdded(notification.timeCreated);
 
-    ListTile notificationTile = ListTile(
-      leading: CircleAvatar(
-        radius: 22.0,
-        backgroundImage: new NetworkImage(Utils.getImagePath(
-            notification.user.guid, notification.user.iconTime)),
-      ),
-      title: Text(notification.user.name),
-      subtitle: Text(notification.description),
-      trailing: Container(
-        margin: EdgeInsets.all(8.0),
-        child: Column(
-          children: <Widget>[
-            Icon(Icons.more_vert),
-            Text(
-              timeDifference,
-              style: TextStyle(fontSize: 12.0, color: Colors.grey),
-            )
-          ],
+    return Column(
+      children: <Widget>[
+        headerText != '' ? (
+            Container(
+            margin: EdgeInsets.all(15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(headerText, style: TextStyle(fontSize: 16.0),),
+                Icon(Icons.filter_list, size: 16.0,)
+              ],
+            )))
+            : Container(),
+        Container(
+          child: Dismissible(
+            key: Key(notification.user.guid),
+            background: Container(color: Colors.red),
+            direction: DismissDirection.endToStart,
+            onDismissed: (direction){
+              setState(() {
+              });
+            },
+            child: ListTile(
+              leading: CircleAvatar(
+                radius: 22.0,
+                backgroundImage: new NetworkImage(Utils.getImagePath(
+                    notification.user.guid, notification.user.iconTime)),
+              ),
+              title: Text(notification.user.name),
+              subtitle: Text(notification.description),
+              trailing: Container(
+                margin: EdgeInsets.all(8.0),
+                child: Column(
+                  children: <Widget>[
+                    Icon(Icons.more_vert),
+                    Text(timeDifference, style: TextStyle(fontSize: 12.0, color: Colors.grey),)
+                  ],
+                ),
+              ),
+            ),
+          ),
         ),
-      ),
+      ],
     );
-    return notificationTile;
   }
 
   Widget body(BuildContext context) {
