@@ -3,7 +3,7 @@ class User {
   String name;
   int iconTime;
 
-  User({this.guid,this.name,this.iconTime});
+  User({this.guid, this.name, this.iconTime});
 
   factory User.fromJSON(Map<String, dynamic> json) {
     return User(

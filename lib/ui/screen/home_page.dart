@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:genericwidgetapp/ui/screen/side_menu.dart';
 import 'package:genericwidgetapp/ui/widgets/bottom_bar_item.dart';
+
 import 'dashboard_screen.dart';
 import 'notifications_screen.dart';
 import 'profile_screen.dart';
@@ -51,8 +52,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget body(BuildContext context)
-  {
+  Widget body(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
       drawer: SideMenu(),
