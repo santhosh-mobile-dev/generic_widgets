@@ -22,5 +22,4 @@ class NotiDelete extends StatelessWidget {
       ],
     );
   }
-
 }
