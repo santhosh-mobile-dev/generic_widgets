@@ -31,12 +31,6 @@ class NotificationsDataSource extends ChangeNotifier {
     final response = await http.delete("$url$uuid",
         headers: {HttpHeaders.authorizationHeader: Api.token});
     print(response.body);
-    if (response.statusCode == 200) {
-      List<Notificationn> notification =
-          Notificationn.fromJSON(jsonDecode(response.body))
-              as List<Notificationn>;
-      notifyListeners();
-    }
     notifyListeners();
   }
 
