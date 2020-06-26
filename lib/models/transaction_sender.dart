@@ -1,5 +1,4 @@
 class Sender {
-
   String guid;
   String type;
   String accessId;
@@ -23,15 +22,15 @@ class Sender {
 
   factory Sender.fromJSON(Map<String, dynamic> json) {
     return Sender(
-        guid: json['guid'],
-        type: json['type'],
-        accessId: json['access_id'],
-        name: json['name'],
-        username: json['amount'],
-        icontime: json['icontime'],
-        boostRating: json['boost_rating'],
-        postCount: json['post_count'],
-        rating: json['rating'],
+      guid: json['guid'],
+      type: json['type'],
+      accessId: json['access_id'],
+      name: json['name'],
+      username: json['amount'],
+      icontime: json['icontime'],
+      boostRating: json['boost_rating'],
+      postCount: json['post_count'],
+      rating: json['rating'],
     );
   }
 }

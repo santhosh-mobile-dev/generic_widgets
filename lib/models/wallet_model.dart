@@ -1,7 +1,6 @@
 import 'package:genericwidgetapp/models/User.dart';
 
 class WalletModel {
-
   int userGuid;
   User user;
   String walletAddress;
@@ -26,15 +25,15 @@ class WalletModel {
 
   factory WalletModel.fromJSON(Map<String, dynamic> json) {
     return WalletModel(
-        userGuid: json['user_guid'],
-        user: User.fromJSON(json['user']),
-        walletAddress: json['wallet_address'],
-        tx: json['tx'],
-        amount: json['amount'],
-        failed: json['failed'],
-        timestamp: json['timestamp'],
-        contract: json['contract'],
-        guid: json['guid'],
+      userGuid: json['user_guid'],
+      user: User.fromJSON(json['user']),
+      walletAddress: json['wallet_address'],
+      tx: json['tx'],
+      amount: json['amount'],
+      failed: json['failed'],
+      timestamp: json['timestamp'],
+      contract: json['contract'],
+      guid: json['guid'],
     );
   }
 //  final String contract;
