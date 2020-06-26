@@ -6,6 +6,7 @@ class Notificationn {
   final String description;
   final String filter;
   final String uuid;
+  final String guid;
   final String status;
   final User user;
   final int timeCreated;
@@ -21,18 +22,20 @@ class Notificationn {
     this.status,
     this.params,
     this.entityObj,
+    this.guid,
   });
 
   factory Notificationn.fromJSON(Map<String, dynamic> json) {
     return Notificationn(
       description: json['description'],
       filter: json['filter'],
-      user: User.fromJSON(json['entityObj']),
+      user: User.fromJSON(json['ownerObj']),
       timeCreated: json['time_created'],
       uuid: json['uuid'],
       status: json['status'],
-      entityObj: EntityObj.fromJSON(json['entityObj']),
-      params: Params.fromJSON(json['entityObj']),
+      entityObj: EntityObj.fromJSON(json['ownerObj']),
+      params: Params.fromJSON(json['ownerObj']),
+      guid: json['guid'],
     );
   }
 }

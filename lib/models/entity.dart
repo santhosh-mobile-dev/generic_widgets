@@ -1,6 +1,6 @@
 class EntityObj {
-  String guid;
-  String name;
+  final String guid;
+  final String name;
 
   EntityObj({this.guid, this.name});
 

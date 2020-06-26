@@ -17,6 +17,7 @@ class NotificationsDataSource extends ChangeNotifier {
       Api.base_Url,
       headers: {HttpHeaders.authorizationHeader: Api.token},
     );
+    print(response.body);
     Map<String, dynamic> responseJson = json.decode(response.body);
     for (Map<String, dynamic> json in responseJson['notifications']) {
       Notificationn notification = Notificationn.fromJSON(json);
@@ -27,16 +28,14 @@ class NotificationsDataSource extends ChangeNotifier {
 
   void deleteNotification(String uuid) async {
     print('notification ${uuid}');
-    final url = "https://ops.doesntexist.com/api/v1/notifications/";
-    final response = await http.delete("$url$uuid",
+    final response = await http.delete("${Api.deleteNotification_url}$uuid",
         headers: {HttpHeaders.authorizationHeader: Api.token});
     print(response.body);
     notifyListeners();
   }
 
   void readNotifications(String uuid) async {
-    final url = "https://ops.doesntexist.com/api/v1/notifications/all/read";
-    final response = await http.post("$url/$uuid",
+    final response = await http.post("${Api.readNotification_url}/$uuid",
         body: {"uuids": "[$uuid]"},
         headers: {HttpHeaders.authorizationHeader: Api.token});
     print(response.body);
