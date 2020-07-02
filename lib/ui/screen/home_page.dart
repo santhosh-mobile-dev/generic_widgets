@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:genericwidgetapp/ui/screen/side_menu.dart';
 import 'package:genericwidgetapp/ui/widgets/bottom_bar_item.dart';
 
-import 'dashboard_screen.dart';
-import 'notifications_screen.dart';
-import 'profile_screen.dart';
-import 'wallet_screen.dart';
+import 'dashboard/dashboard_screen.dart';
+import 'notifications/notifications_screen.dart';
+import 'profile/profile_screen.dart';
+import 'wallet/wallet_screen.dart';
 
 class HomePage extends StatefulWidget {
   @override

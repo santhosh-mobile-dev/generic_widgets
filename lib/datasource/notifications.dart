@@ -3,11 +3,9 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:genericwidgetapp/constants/api.dart';
-import 'package:genericwidgetapp/models/notifications.dart';
 import 'package:http/http.dart' as http;
 
-import '../constants/api.dart';
-import '../models/notifications.dart';
+import 'file:///C:/Users/Admin/Documents/GitHub/generic_widgets/lib/models/notification/notifications.dart';
 
 class NotificationsDataSource extends ChangeNotifier {
   List<Notificationn> notifications = [];

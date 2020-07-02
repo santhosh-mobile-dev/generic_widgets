@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:genericwidgetapp/ui/screen/login.dart';
+
+import 'file:///C:/Users/Admin/Documents/GitHub/generic_widgets/lib/ui/screen/login_signup/login.dart';
 
 class App extends StatelessWidget {
   @override

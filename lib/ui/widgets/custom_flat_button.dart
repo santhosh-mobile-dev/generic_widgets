@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class CustomFlatButton extends StatelessWidget {
   final String text;
   final Color color;
+  final Color bgColor;
   final FontWeight fontWeight;
   final VoidCallback onClick;
 
-  CustomFlatButton({this.text, this.color, this.fontWeight, this.onClick});
+  CustomFlatButton(
+      {this.text, this.color, this.fontWeight, this.onClick, this.bgColor});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class CustomFlatButton extends StatelessWidget {
         ),
         onPressed: onClick,
         textColor: color,
+        color: bgColor,
       ),
     );
   }

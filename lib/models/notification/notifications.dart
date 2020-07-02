@@ -1,6 +1,6 @@
-import 'package:genericwidgetapp/models/User.dart';
-import 'package:genericwidgetapp/models/entity.dart';
-import 'package:genericwidgetapp/models/params.dart';
+import 'file:///C:/Users/Admin/Documents/GitHub/generic_widgets/lib/models/notification/User.dart';
+import 'file:///C:/Users/Admin/Documents/GitHub/generic_widgets/lib/models/notification/entity.dart';
+import 'file:///C:/Users/Admin/Documents/GitHub/generic_widgets/lib/models/notification/params.dart';
 
 class Notificationn {
   final String description;
