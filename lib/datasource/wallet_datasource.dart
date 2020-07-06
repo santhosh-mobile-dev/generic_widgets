@@ -1,12 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:genericwidgetapp/constants/api.dart';
-import 'package:genericwidgetapp/models/wallet/purchase_coins_rate.dart';
 import 'package:genericwidgetapp/models/wallet/wallet_overview.dart';
 import 'package:http/http.dart' as http;
-
 import 'file:///C:/Users/Admin/Documents/GitHub/generic_widgets/lib/models/wallet/user_account_balance.dart';
 import 'file:///C:/Users/Admin/Documents/GitHub/generic_widgets/lib/models/wallet/wallet_model.dart';
 
@@ -22,7 +19,7 @@ class WalletDataSource extends ChangeNotifier {
       Api.wallet_url,
       headers: {HttpHeaders.authorizationHeader: Api.token},
     );
-//    print(response.body);
+    print(response.body);
     Map<String, dynamic> responseJson = json.decode(response.body);
     for (Map<String, dynamic> json in responseJson['transactions']) {
       WalletModel wallet = WalletModel.fromJSON(json);
@@ -60,18 +57,6 @@ class WalletDataSource extends ChangeNotifier {
     WalletScoreOverview userOverview = WalletScoreOverview.fromJson(respJson);
     rewords = userOverview.currentReward;
     score = userOverview.yourShare;
-    notifyListeners();
-  }
-
-  void getPredefinedTokenValue() async {
-    final response = await http.get(
-      Api.buy_coins_url,
-      headers: {HttpHeaders.authorizationHeader: Api.token},
-    );
-    print(response.body);
-    Map<String, dynamic> respJson = json.decode(response.body);
-    CoinsRate coinsRate = CoinsRate.fromJson(respJson);
-    rate = coinsRate.rate as String;
     notifyListeners();
   }
 

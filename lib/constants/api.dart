@@ -15,10 +15,6 @@ class Api {
       "https://ops.doesntexist.com/api/v3/rewards/data?";
   static String contribution_overview =
       "https://ops.doesntexist.com/api/v2/blockchain/contributions/overview?";
-  static String community_post =
-      "https://ops.doesntexist.com/api/v1/groups/group";
   static String buy_coins_url =
       "https://ops.doesntexist.com/api/v2/blockchain/purchase";
 }
-
-//https://static.im-cdn.com/assets/js/bundle/payments.bundle.39a268bc356e.js
