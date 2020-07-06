@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:genericwidgetapp/custom_message.dart';
-import 'package:genericwidgetapp/ui/widgets/custom_label_text.dart';
-
-import '../widgets/custom_raised_button.dart';
-import '../widgets/custom_textfield.dart';
-import '../widgets/heading.dart';
-import '../widgets/custom_flat_button.dart';
 import 'package:genericwidgetapp/ui/screen/login.dart';
+import 'package:genericwidgetapp/ui/widgets/custom_flat_button.dart';
+import 'package:genericwidgetapp/ui/widgets/custom_label_text.dart';
+import 'package:genericwidgetapp/ui/widgets/custom_raised_button.dart';
+import 'package:genericwidgetapp/ui/widgets/custom_textfield.dart';
+import 'package:genericwidgetapp/ui/widgets/heading.dart';
 
 class CreateAccount extends StatefulWidget {
   @override
@@ -123,7 +122,7 @@ class _CreateAccountState extends State<CreateAccount> {
   void createAccount() {}
 
   void login() {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
   }
 
   @override

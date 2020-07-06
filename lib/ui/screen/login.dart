@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:genericwidgetapp/ui/screen/create_account.dart';
 import 'package:genericwidgetapp/ui/screen/home_page.dart';
 import 'package:genericwidgetapp/ui/widgets/custom_flat_button.dart';
 import 'package:genericwidgetapp/ui/widgets/custom_raised_button.dart';
 import 'package:genericwidgetapp/ui/widgets/custom_textfield.dart';
 import 'package:genericwidgetapp/ui/widgets/heading.dart';
-import 'package:genericwidgetapp/ui/screen/create_account.dart';
-
 
 class Login extends StatefulWidget {
   @override
