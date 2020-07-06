@@ -1,42 +1,41 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:genericwidgetapp/ui/screen/create_account.dart';
-import 'package:genericwidgetapp/ui/screen/home_page.dart';
+import 'package:genericwidgetapp/custom_message.dart';
+import 'package:genericwidgetapp/ui/screen/login.dart';
 import 'package:genericwidgetapp/ui/widgets/custom_flat_button.dart';
+import 'package:genericwidgetapp/ui/widgets/custom_label_text.dart';
 import 'package:genericwidgetapp/ui/widgets/custom_raised_button.dart';
 import 'package:genericwidgetapp/ui/widgets/custom_textfield.dart';
 import 'package:genericwidgetapp/ui/widgets/heading.dart';
 
-class Login extends StatefulWidget {
+class CreateAccount extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  State<StatefulWidget> createState() => _CreateAccountState();
 }
 
-class _LoginState extends State<Login> {
+class _CreateAccountState extends State<CreateAccount> {
+  TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   bool showPassword = false;
   bool obscuredText = true;
 
-  Widget body(BuildContext context) {
-    return loginUI(context);
-  }
-
-  Widget sizedBoxH16() {
+  Widget sizedBoxH20() {
     return SizedBox(
-      height: 16.0,
+      height: 20.0,
     );
   }
 
-  Widget sizedBoxH94() {
+  Widget sizedBoxH100() {
     return SizedBox(
-      height: 94.0,
+      height: 100.0,
     );
   }
 
-  Widget sizedBoxH160() {
+  Widget sizedBoxH50() {
     return SizedBox(
-      height: 160.0,
+      height: 50.0,
     );
   }
 
@@ -52,75 +51,78 @@ class _LoginState extends State<Login> {
     }
   }
 
-  void login() {
-    //TODO :: Complete this accordingly
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => HomePage()));
+  Widget body(BuildContext context) {
+    return createAccountUI(context);
   }
 
-  void createAccount() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => CreateAccount()));
-  }
-
-  Widget loginUI(BuildContext context) {
+  Widget createAccountUI(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 50.0),
+      margin: EdgeInsets.symmetric(horizontal: 45.0, vertical: 50.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Heading(
-            text: "Login",
-            fontSize: 32.0,
-            fontWeight: FontWeight.w400,
+            text: CustomMessages.createAccount,
           ),
-          sizedBoxH94(),
+          sizedBoxH50(),
+          CustomLabelText(
+            text: CustomMessages.name,
+          ),
           CustomTextField(
-            textFieldController: emailController,
-            labelText: "Email Address",
+            textFieldController: nameController,
             obscureText: false,
             isShowIcon: false,
           ),
-          sizedBoxH16(),
+          sizedBoxH20(),
+          CustomLabelText(
+            text: CustomMessages.emailAddress,
+          ),
+          CustomTextField(
+            textFieldController: emailController,
+            obscureText: false,
+            isShowIcon: false,
+          ),
+          sizedBoxH20(),
+          CustomLabelText(
+            text: CustomMessages.password,
+          ),
           CustomTextField(
             textFieldController: passwordController,
-            labelText: "Password",
             obscureText: obscuredText,
             isShowIcon: true,
-            iconData: showPassword ? Icons.visibility_off : Icons.visibility,
+            iconData: showPassword ? Icons.visibility : Icons.visibility_off,
             showPassword: showPassword,
             onPressed: passwordVisibility,
           ),
-          sizedBoxH16(),
+          sizedBoxH20(),
           CustomRaisedButton(
-            text: "Login",
-            onClick: login,
+            text: CustomMessages.createAccount,
+            onClick: createAccount,
           ),
-          sizedBoxH16(),
-          CustomFlatButton(
-            text: "Forgot Password?",
-            onClick: () {},
-            color: Colors.black,
-            fontWeight: FontWeight.w400,
-          ),
-          sizedBoxH160(),
+          sizedBoxH100(),
           Center(
               child: Heading(
-            text: "Don't have an account?",
+            text: CustomMessages.alreadyHaveAnAccount,
             fontSize: 18.0,
             fontWeight: FontWeight.normal,
           )),
-          sizedBoxH16(),
+          sizedBoxH20(),
           CustomFlatButton(
-            text: "Create Account",
-            onClick: createAccount,
+            text: CustomMessages.loginText,
+            onClick: login,
             color: Colors.deepPurple,
             fontWeight: FontWeight.w600,
           ),
         ],
       ),
     );
+  }
+
+  void createAccount() {}
+
+  void login() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
   }
 
   @override

@@ -1,0 +1,10 @@
+class Api {
+  static String base_Url =
+      "https://ops.doesntexist.com/api/v1/notifications/all?limit=24&offset=";
+  static String token =
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjQ0YTU2Mjk1YTk3Yzc3Y2JiNWMxZGUxYjczMzdiZDJiYjljMGU1NWRlY2JiYTgxZDY2YWQ5OTQyNDdhNmRmZjQyYWM5OWEwNTEyMGMwMzM2In0.eyJhdWQiOiJtb2JpbGUiLCJqdGkiOiI0NGE1NjI5NWE5N2M3N2NiYjVjMWRlMWI3MzM3YmQyYmI5YzBlNTVkZWNiYmE4MWQ2NmFkOTk0MjQ3YTZkZmY0MmFjOTlhMDUxMjBjMDMzNiIsImlhdCI6MTU5MzE3NjYzMSwibmJmIjoxNTkzMTc2NjMxLCJleHAiOjE1OTM0MzU4MzEsInN1YiI6IjExMDY2MTQ2NTU2NTgyMzM4NjMiLCJzY29wZXMiOltdfQ.H__UIPt51-nEPuo11P5qMYCCUwlbA4YNPuRgZwBjrRRq0ST38rhTPG2kKXxoycqAI6HcApqhfEoeEJHZWzs60sdeXNAOylPSqZcud8lXIWPK3Y3D3Jb58F1OGSaATcj8YulSut6Egm7I370K7cgWZ3VBo4Rzq_GiZIRzKKDnUV8fjKHMB9bXjhl_cmXda7nLBxgBuy1jl834MA9SyHGPBUHqBw2Swc4SZGIAEI0YMVjpOG-Kk4sgeGbOJifh2mSBCzQJ8RpsGO3EZSQVRD6xthamjPMMupU_Ecy8YNkt9cpJzssArcIfEyMqB14J6TkTXm80yJrnuOIAsqhhRRtzUQ";
+  static String deleteNotification_url =
+      "https://ops.doesntexist.com/api/v1/notifications/";
+  static String readNotification_url =
+      "https://ops.doesntexist.com/api/v1/notifications/all/read";
+}

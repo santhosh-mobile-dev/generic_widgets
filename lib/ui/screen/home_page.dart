@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:genericwidgetapp/ui/screen/profile_screen.dart';
 import 'package:genericwidgetapp/ui/screen/wallet_screen.dart';
+import 'package:genericwidgetapp/ui/screen/side_menu.dart';
 import 'package:genericwidgetapp/ui/widgets/bottom_bar_item.dart';
-
 import 'dashboard_screen.dart';
 import 'notifications_screen.dart';
+import 'profile_screen.dart';
+import 'wallet_screen.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -20,7 +22,11 @@ class _HomePageState extends State<HomePage> {
     NotificationsScreen(),
     ProfileScreen()
   ];
-
+  
+  Widget screenView(BuildContext context) {
+    return Center(child: _children[_currentIndex]);
+  }
+  
   _changesIndex(int index) {
     setState(() {
       _currentIndex = index;
@@ -44,20 +50,20 @@ class _HomePageState extends State<HomePage> {
     return AppBar(
       title: Text('Home'),
       centerTitle: true,
-      automaticallyImplyLeading: false,
     );
   }
 
-  Widget screenView(BuildContext context) {
-    return Center(child: _children[_currentIndex]);
+  Widget body(BuildContext context) {
+    return Scaffold(
+      appBar: appBar(),
+      drawer: SideMenu(),
+      bottomNavigationBar: bottomNavigationBar(),
+      body: screenView(context),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appBar(),
-      bottomNavigationBar: bottomNavigationBar(),
-      body: screenView(context),
-    );
+    return body(context);
   }
 }
